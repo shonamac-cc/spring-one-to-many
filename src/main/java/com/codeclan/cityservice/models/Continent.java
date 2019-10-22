@@ -1,7 +1,8 @@
 package com.codeclan.cityservice.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,15 +10,29 @@ import java.util.List;
 @Table(name = "continents")
 public class Continent {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "name")
     private String name;
+
+    @JsonIgnoreProperties("continent")
+    @OneToMany(mappedBy = "continent")
     private List<City> cities;
+
+    @JsonIgnoreProperties("continent")
+    @OneToMany(mappedBy = "continent")
     private List<Country> countries;
 
     public Continent(String name) {
         this.name = name;
         this.cities = new ArrayList<>();
         this.countries = new ArrayList<>();
+    }
+
+    public Continent(){
+
     }
 
     public Long getId() {
