@@ -36,19 +36,19 @@ public class Continent {
         this.name = name;
     }
 
-    public ArrayList<City> getCities() {
+    public List<City> getCities() {
         return cities;
     }
 
-    public void setCities(ArrayList<City> cities) {
+    public void setCities(List<City> cities) {
         this.cities = cities;
     }
 
-    public ArrayList<Country> getCountries() {
+    public List<Country> getCountries() {
         return countries;
     }
 
-    public void setCountries(ArrayList<Country> countries) {
+    public void setCountries(List<Country> countries) {
         this.countries = countries;
     }
 
